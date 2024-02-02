@@ -1,15 +1,13 @@
-import { useAccount, useConnect } from 'wagmi'
-import { InjectedConnector } from 'wagmi/connectors/injected'
+import { useAccount } from 'wagmi'
+import { ConnectButton } from '@rainbow-me/rainbowkit';
 
 export default function Home() {
   const { address, isConnected } = useAccount()
-  const { connect } = useConnect({
-    connector: new InjectedConnector()
-    })
+
   return (
     <>
       <div>
-        <button onClick={() => connect()}>Connect</button>
+        <ConnectButton />
         <p>{isConnected && address}</p>
       </div>
     </>
